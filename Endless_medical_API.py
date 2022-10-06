@@ -69,7 +69,7 @@ for iter_symptom in range(syptom_number):
 dict_symptoms = OrderedDict(zip(option_syptom, value_symptom))
 
 st.write("Click the button Analysis to make the calculations and view the results called by endlessmedical APIs")
-get_API = col2.button("*********** Analyze ***********")
+get_API = st.button("*********** Analyze ***********")
 
 
 
