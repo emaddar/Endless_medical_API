@@ -1,7 +1,6 @@
 import streamlit as st
 import os
 import json
-import random
 from collections import OrderedDict
 import requests
 url = "http://api.endlessmedical.com/v1/dx/"
