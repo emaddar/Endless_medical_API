@@ -96,15 +96,19 @@ def diagnostic_function(dict_symptoms):
         requests.post(url +"UpdateFeature", params=param_symptom)
 
     patient_on_analysis = requests.get(url +"Analyze", params=param).json()
+    
+    if len(patient_on_analysis["Diseases"]) == 0:
+        st.write('No disease predicted ...')
+    else :
+        st.write(patient_on_analysis["Diseases"])
+        #patient_diag = {}
+        #for i in range(3):
+            #desease_name = list(patient_on_analysis["Diseases"][i].items())[0][0]
+            #list_symptoms = patient_on_analysis["VariableImportances"][i][desease_name][:2]
+            #patient_diag[desease_name] = list_symptoms
 
-    patient_diag = {}
-    for i in range(3):
-        desease_name = list(patient_on_analysis["Diseases"][i].items())[0][0]
-        list_symptoms = patient_on_analysis["VariableImportances"][i][desease_name][:2]
-        patient_diag[desease_name] = list_symptoms
-
-    return patient_diag
-
+        #return patient_diag
+        
 
 if get_API:
     st.write(diagnostic_function(dict_symptoms))
